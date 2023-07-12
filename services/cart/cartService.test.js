@@ -4,17 +4,17 @@ const expect = chai.expect;
 const assert = chai.assert;
 const request = require('supertest');
 chai.use(chaiHttp);
-const TestCases = require('./testCaseCart')
+const TestCases = require('./testCaseCart');
 
 describe('Cart Service Test', () => {
     try {
         it('As a user I should be able fetch all items in cart', async () => {
             const user = {
-                "userId": "03236426-3524-4dd1-8b60-988d9e169e82"
+                'userId': '03236426-3524-4dd1-8b60-988d9e169e82'
             };
             const res = await request('http://localhost:3000')
                 .post('/cart/get-cart')
-                .send(user)
+                .send(user);
             expect(res.body.status).to.be.status;
             assert.equal(res.status, 200);
 
@@ -29,7 +29,7 @@ describe('Cart Service Test', () => {
             const body = TestCases.updateCart;
             const res = await request('http://localhost:3000')
                 .put('/cart/update-cart')
-                .send(body)
+                .send(body);
             expect(res.body.status).to.be.status;
             assert.equal(res.status, 200);
 
@@ -45,7 +45,7 @@ describe('Cart Service Test', () => {
             const body = TestCases.placeOrder;
             const res = await request('http://localhost:3000')
                 .post('/cart/place-order')
-                .send(body)
+                .send(body);
             expect(res.body.status).to.be.status;
             assert.equal(res.status, 200);
 
@@ -60,7 +60,7 @@ describe('Cart Service Test', () => {
             const user = TestCases.userIdBody;
             const res = await request('http://localhost:3000')
                 .post('/cart/place-order')
-                .send(user)
+                .send(user);
             expect(res.body.status).to.be.status;
             assert.equal(res.status, 200);
 

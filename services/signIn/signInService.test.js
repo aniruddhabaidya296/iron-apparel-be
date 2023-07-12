@@ -9,12 +9,12 @@ describe('SignIn Service Test', () => {
     try {
         it('As a user I should be able to sign in', async () => {
             const body = {
-                "email": "john.doe@example.com",
-                "password": "secretpassword"
+                'email': 'john.doe@example.com',
+                'password': 'secretpassword'
             };
             const res = await request('http://localhost:3000')
                 .post('/auth/sign-in')
-                .send(body)
+                .send(body);
             expect(res.body.status).to.be.status;
             assert.equal(res.status, 200);
 

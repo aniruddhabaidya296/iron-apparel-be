@@ -4,7 +4,7 @@ const { fetchAllProducts } = require('../controllers/shop');
 
 const shopRouter = express.Router();
 
-shopRouter.get('/products',fetchAllProducts)
-shopRouter.get('/')
+shopRouter.get('/products', fetchAllProducts);
+shopRouter.get('/');
 
 module.exports = shopRouter;

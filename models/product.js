@@ -10,8 +10,8 @@ class Product {
         this.imageUrl = imageUrl;
     }
 
-    save() {
-        const db = getDb();
+    async save() {
+        const db = await getDb();
         return db.collection('products')
             .insertOne(this)
             .then(result =>
@@ -21,8 +21,8 @@ class Product {
             );
     }
 
-    static fetchAll() {
-        const db = getDb();
+    static async fetchAll() {
+        const db = await getDb();
         return db.collection('products')
             .find()
             .toArray()

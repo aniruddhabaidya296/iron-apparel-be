@@ -12,6 +12,7 @@ require('../services/signUp/signUpService.test');
 require('../services/cart/cartService.test');
 require('../services/user/userService.test');
 require('../services/signIn/signInService.test');
+require('../services/product/product.test');
 
 describe('Stop server in end', () => {
     it('Server should stop manually to get code coverage', done => {

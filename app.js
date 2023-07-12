@@ -10,14 +10,14 @@ const cartRouter = require('./routes/cart');
 const userRouter = require('./routes/user');
 const { getDb } = require('./utils/database');
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: true,
-}))
-app.use('/admin', adminRouter)
-app.use('/shop', shopRouter)
-app.use('/auth', authRouter)
-app.use('/cart', cartRouter)
-app.use('/user', userRouter)
+    extended: true
+}));
+app.use('/admin', adminRouter);
+app.use('/shop', shopRouter);
+app.use('/auth', authRouter);
+app.use('/cart', cartRouter);
+app.use('/user', userRouter);
 
 module.exports = app;
