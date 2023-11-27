@@ -1,19 +1,16 @@
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 const ServerApi = mongodb.ServerApiVersion;
+const mongoose = require("mongoose");
 
 let _db = null;
-// const mongoConnect = callback => MongoClient.connect('mongodb+srv://aniruddhabaidya:vFmBx9RawgBzRQ43@cluster0.llsgiyj.mongodb.net/?retryWrites=true&w=majority'
-// ).then(client => {
-//     console.log("mongodb connected")
-//     _db = client.db()
-// }).catch(e => {
-//     console.log(e);
-// })
 
 const mongoConnect = async () => {
     try {
         const client = await MongoClient.connect(('mongodb+srv://aniruddhabaidya:vFmBx9RawgBzRQ43@cluster0.llsgiyj.mongodb.net/?retryWrites=true&w=majority'));
+        await mongoose.connect("mongodb+srv://aniruddhabaidya:vFmBx9RawgBzRQ43@cluster0.llsgiyj.mongodb.net/?retryWrites=true&w=majority").then(()=>{
+            console.log('mongoose connected');
+        })
         _db = client.db();
         console.log('DB is set');
     } catch (error) {

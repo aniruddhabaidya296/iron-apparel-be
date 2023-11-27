@@ -1,8 +1,10 @@
-const CartService = require("../services/cart/cartService");
-const UserService = require("../services/user/userService");
+const CartService = require("../cart/cartService");
+const UserService = require("./userService");
 
 
 class UserController {
+
+
     static getUser = (req, res, next) => {
         UserService.getUser(req.body.userId)
             .then((result) => {
@@ -29,6 +31,22 @@ class UserController {
                 })
             }).catch((err) => {
                 console.log(err)
+                return res.sendStatus(500);
+            });
+    }
+
+    static uploadImage = (req, res) => {
+        UserService.uploadImage(req.file, req.body.userId)
+            .then((result) => {
+                // console.log("controller", result.imageName)
+                return res.status(200).send({
+                    "status": 1,
+                    "data": result,
+                    "message": 'Image uploaded and saved successfully.'
+
+                });
+            }).catch((err) => {
+                console.log("controller error", err)
                 return res.sendStatus(500);
             });
     }

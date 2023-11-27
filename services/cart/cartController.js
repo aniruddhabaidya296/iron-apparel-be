@@ -1,5 +1,5 @@
-const Order = require("../models/order");
-const CartService = require("../services/cart/cartService");
+const Order = require("../../models/order");
+const CartService = require("./cartService");
 
 
 class CartController {

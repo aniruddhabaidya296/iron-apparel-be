@@ -1,6 +1,5 @@
 const express = require('express');
-const { postAddProduct } = require('../controllers/admin');
-const { fetchAllProducts } = require('../controllers/shop');
+const { fetchAllProducts } = require('../services/product/productController');
 
 const shopRouter = express.Router();
 

@@ -4,7 +4,7 @@ const expect = chai.expect;
 const assert = chai.assert;
 const request = require('supertest');
 chai.use(chaiHttp);
-const TestCases = require('./testCaseCart');
+const TestCases = require('../testCaseCart');
 
 describe('Cart Service Test', () => {
     try {
